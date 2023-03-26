@@ -1,4 +1,4 @@
-// Create Div Rows
+// Create Div to represent Rows
 const container = document.querySelector('.container');
 const div1 = document.createElement('div');
 const div2 = document.createElement('div');
@@ -50,7 +50,7 @@ container.appendChild(div15);
 container.appendChild(div16);
 
 
-// Create Arrays
+// Create Array for grid divs
 const div1Array = [];
 const div2Array = [];
 const div3Array = [];
@@ -68,14 +68,15 @@ const div14Array = [];
 const div15Array = [];
 const div16Array = [];
 
-// Create function to fill array with 16 divs/boxes
+// Create function to fill array with grid divs
 function populateArray(array){
     for (let i = 0; i < 16; i++){
         array[i] = document.createElement('div');
         array[i].classList.add('divbox');
     }
 }
-// Run above functions
+
+// Run function to fill array with grid divs
 populateArray(div1Array);
 populateArray(div2Array);
 populateArray(div3Array);
@@ -93,8 +94,13 @@ populateArray(div14Array);
 populateArray(div15Array);
 populateArray(div16Array);
 
-
 // Add 16 boxes to each row by appending 16 array elem to each row
+// Could use a nested for loop with div1/2/3... being replaced by an Array[i]
+/* for (let j = 0; j < 16; j++){
+    for (let i = 0; i < 16; i++){
+        Array[j].appendChild(div1Array[i]);
+    } ?? Not working but noted, maybe
+    */
 for (let j = 0; j < 16; j++){
     div1.appendChild(div1Array[j]);
     div2.appendChild(div2Array[j]);
@@ -113,3 +119,21 @@ for (let j = 0; j < 16; j++){
     div15.appendChild(div15Array[j]);
     div16.appendChild(div16Array[j]);
 }
+
+// Add Event Listener for Hover to griddiv
+const gridDiv = document.querySelectorAll('.divbox');
+
+const divBoxTest = document.querySelector('.divbox');
+
+divBoxTest.addEventListener('click', function(){
+    divBoxTest.classList.add('hover');
+    
+})
+
+for (let i = 0; i < gridDiv.length; i++){
+    gridDiv[i].addEventListener('mousedown', function(e){
+        gridDiv[i].classList.add('hover');
+    })
+}
+
+

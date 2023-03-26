@@ -1,6 +1,8 @@
 .container {
-    background: peachpuff;
-    border: 4px solid brown;    
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    
 }
 
 .divrow {
@@ -8,8 +10,7 @@
 }
 
 .divbox {
-    background: peachpuff;
-    border: 4px solid brown;
+    border: 1px solid black;
     flex: 1 0 auto;
     height: auto;
 }
@@ -20,6 +21,10 @@
     padding-top: 100%
 }
 
+.hover {
+    background-color: black;
+    border: 1px solid white;
+}
 
 
 
