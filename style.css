@@ -10,8 +10,14 @@
 .divbox {
     background: peachpuff;
     border: 4px solid brown;
-    height: 100px;
-    flex-grow: 1;
+    flex: 1 0 auto;
+    height: auto;
+}
+
+.divbox:before {
+    content: '';
+    display:block;
+    padding-top: 100%
 }
 
 
