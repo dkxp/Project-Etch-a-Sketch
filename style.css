@@ -2,11 +2,14 @@
     border: 1px solid black;
     width: 500px;
     height: 500px;
-    
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.divrow {
-    display: flex;
+.divrow {   
+    flex-grow: 1;
+    display:flex;
 }
 
 .divbox {
@@ -26,6 +29,14 @@
     border: 1px solid white;
 }
 
+#btn {
+    display:flex;
+    padding: 20px;
+    font-size:larger;
+    justify-content: center;
+    align-items: center;
+    
+}
 
 
 
