@@ -121,6 +121,16 @@ for (let j = 0; j < 16; j++){
 }
 
 // Add Event Listener for Hover to griddiv
+let mouseDown = false;
+document.body.addEventListener('mousedown', function(){
+    console.log('MOUSE DOWN');
+    mouseDown = true;
+})
+document.body.addEventListener('mouseup', function(){
+    console.log('MOUSE UP');
+    mouseDown = false;
+})
+
 const gridDiv = document.querySelectorAll('.divbox');
 
 const divBoxTest = document.querySelector('.divbox');
@@ -136,4 +146,11 @@ for (let i = 0; i < gridDiv.length; i++){
     })
 }
 
+if (mouseDown = true){
+    for (let i = 0; i < gridDiv.length; i++){
+        gridDiv[i].addEventListener('mouseover', function(e){
+            gridDiv[i].classList.add('hover');
+        })
+    }
+}
 
