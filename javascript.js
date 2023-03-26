@@ -45,12 +45,21 @@ for (let i = 0; i < individualBox.length; i++){
     })
 }
 
-// Add a button to the top of the screen 
+// Add a button to the top of the screen to get box size
 let boxSizeButton = document.createElement('button');
 boxSizeButton.setAttribute('id', 'btn');
 boxSizeButton.textContent = 'Change Grid Size';
 boxSizeButton.addEventListener('click', function(e){
-    prompt('Enter Box Size (max 100):', '');
+    userInputSize = prompt('Enter Box Size (max 100):', '');
+    if (userInputSize <= 100 && userInputSize > 0){
+        while (container.childNodes.length > 1){
+            container.removeChild(container.lastChild);
+        }   
+        createRows(rowArray);
+        fillOuterWithInnerArrays(outerArray);
+        fillInnerArrayWithDivs(outerArray);
+        
+    }
 })
 container.insertBefore(boxSizeButton, container.firstChild);
 
