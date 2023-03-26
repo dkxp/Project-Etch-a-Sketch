@@ -58,7 +58,13 @@ boxSizeButton.addEventListener('click', function(e){
         createRows(rowArray);
         fillOuterWithInnerArrays(outerArray);
         fillInnerArrayWithDivs(outerArray);
-        
+        let newBoxCount = document.querySelectorAll('.divbox');
+        console.log(newBoxCount);
+        for (let i = 0; i < newBoxCount.length; i++){
+            newBoxCount[i].addEventListener('mouseover', function(e){
+                newBoxCount[i].classList.add('hover');
+            })
+        }
     }
 })
 container.insertBefore(boxSizeButton, container.firstChild);
