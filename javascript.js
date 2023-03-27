@@ -11,24 +11,6 @@ colorButton.setAttribute('id', 'btn');
 colorButton.textContent = 'Dynamic Colors';
 container.insertBefore(colorButton, container.firstChild);
 
-// Pick a random color from array of colors and store in variable randomColor
-const colorArray = ['#ff0000', '#00ff00', '#0000ff',
-'#ff3333', '#ffff00', '#ff6600'];
-
-let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
-
-//Clicking color button removes .hover class and sets dynamicColor to true
-let dynamicColor = false;
-
-/*colorButton.addEventListener('click', function(e){
-    dynamicColor = true;
-    blackColorBoxes = document.querySelectorAll('.hover');
-    for (i = 0; i < blackColorBoxes.length; i++){
-        blackColorBoxes[i].classList.remove('hover');
-        blackCOlorBoxes[i].removeEventListener('mouseover', )
-    }
-})*/
-
 
 
 // Fill Array representing rows with userinput # of rows (divrow)
@@ -63,8 +45,7 @@ function fillInnerArrayWithDivs(array){
 
 fillInnerArrayWithDivs(outerArray);
 
-// Function that adds event listener as we need
-// it to be removed, when dynamic color box button is pressed
+// Function that adds event listener 
 
 function addMouseOverEvent(){
     let gridSize = document.querySelectorAll('.divbox');
@@ -77,8 +58,7 @@ function addMouseOverEvent(){
 
 addMouseOverEvent();
 
-
-// Add a button to the top of the screen to get box size
+// Change Grid Size
 let boxSizeButton = document.createElement('button');
 boxSizeButton.setAttribute('id', 'btn');
 boxSizeButton.textContent = 'Change Grid Size';
@@ -97,7 +77,34 @@ boxSizeButton.addEventListener('click', function(e){
 container.insertBefore(boxSizeButton, container.firstChild);
 
 
+//Clicking color button adds new class/s with many colors
+let dynamicColor = false;
 
+colorButton.addEventListener('click', function(e){
+    dynamicColor = true;
+    let gridSize = document.querySelectorAll('.divbox');
+    for (i = 0; i < gridSize.length; i++){
+        gridSize[i].classList.remove('hover');
+    }
+    makeColorsDynamic();
+})
+
+// Pick a random color from array of colors and store in variable randomColor
+const colorArray = ['#ff0000', '#00ff00', '#0000ff',
+'#ff3333', '#ffff00', '#ff6600'];
+
+let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+
+let gridSize = document.querySelectorAll('.divbox');
+
+function makeColorsDynamic() {for (let i = 0; i < gridSize.length; i++){
+    let gridSize = document.querySelectorAll('.divbox');
+    gridSize[i].addEventListener('mouseover', function(e){
+        let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+        gridSize[i].style.backgroundColor = randomColor;
+        })
+    }
+}
 
 
 

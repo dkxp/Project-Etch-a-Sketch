@@ -9,7 +9,6 @@
 .divrow {   
     flex-grow: 1;
     display:flex;
-    
 }
 
 .divbox {
@@ -38,8 +37,10 @@
     align-items: center;
 }
 
-
-
+#hover2 {
+    background: red;
+    border: 1px solid white;
+}
 
 
 
