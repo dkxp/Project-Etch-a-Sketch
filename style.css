@@ -9,12 +9,14 @@
 .divrow {   
     flex-grow: 1;
     display:flex;
+    
 }
 
 .divbox {
-    outline: 1px solid black;
+    border: 1px solid black;
     flex: 1 0 auto;
     height: auto;
+    margin: -1px 0 0;
 }
 
 .divbox:before {
@@ -25,7 +27,7 @@
 
 .hover {
     background-color: black;
-    outline: 1px solid white;
+    border: 1px solid white;
 }
 
 #btn {
