@@ -45,7 +45,7 @@ function fillInnerArrayWithDivs(array){
 
 fillInnerArrayWithDivs(outerArray);
 
-// Function that adds event listener 
+// Function that adds event listener + hover class for color change
 
 function addMouseOverEvent(){
     let gridSize = document.querySelectorAll('.divbox');
@@ -71,7 +71,13 @@ boxSizeButton.addEventListener('click', function(e){
         createRows(rowArray);
         fillOuterWithInnerArrays(outerArray);
         fillInnerArrayWithDivs(outerArray);
-        addMouseOverEvent();
+        if (dynamicColor === false){
+            addMouseOverEvent();
+        }
+        if (dynamicColor === true){
+            makeColorsDynamic();
+        }
+        
     }
 })
 container.insertBefore(boxSizeButton, container.firstChild);
@@ -95,14 +101,15 @@ const colorArray = ['#ff0000', '#00ff00', '#0000ff',
 
 let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 
-let gridSize = document.querySelectorAll('.divbox');
 
-function makeColorsDynamic() {for (let i = 0; i < gridSize.length; i++){
+
+function makeColorsDynamic() {
     let gridSize = document.querySelectorAll('.divbox');
-    gridSize[i].addEventListener('mouseover', function(e){
-        let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
-        gridSize[i].style.backgroundColor = randomColor;
-        })
+    for(let i = 0; i < gridSize.length; i++){
+        gridSize[i].addEventListener('mouseover', function(e){
+            let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+            gridSize[i].style.backgroundColor = randomColor;
+            })
     }
 }
 
